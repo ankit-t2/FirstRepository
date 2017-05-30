@@ -1,0 +1,14 @@
+@echo off
+
+set input=.\Request
+set url=corbaloc:iiop:uknwsaviv243.via.novonet:20200
+set sas_client=
+set ssl_client=
+set CP=%CP%;.\lib\DWLCommonServices.jar
+set CP=%CP%;.\lib\com.ibm.ws.webservices.thinclient_7.0.0.jar
+set CP=%CP%;.\lib\com.ibm.ws.sib.utils.jar
+set CP=%CP%;.\lib\com.ibm.ws.admin.client_7.0.0.jar
+set CP=%CP%;.\lib\j2ee.jar
+set CP=%CP%;.\properties\context.properties
+
+"C:\ExternalXMLTester\lib\java\bin\java" -Dcom.ibm.CORBA.ConfigURL="file:.\properties\sas.client_changed_sys.props" -Dcom.ibm.SSL.ConfigURL="file:.\properties\ssl.client_changed.props" -classpath "%CP%" com.ibm.mdm.test.MyXMLTester "%input%" "%url%"
